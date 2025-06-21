@@ -13,8 +13,9 @@ if (!$user) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $conn->real_escape_string($_POST['name']);
     $email = $conn->real_escape_string($_POST['email']);
-
-    $conn->query("UPDATE users SET name='$name', email='$email' WHERE id=$id");
+    $password = $conn->real_escape_string($_POST['password']);
+    
+    $conn->query("UPDATE users SET name='$name', email='$email', password='$password' WHERE id=$id");
     header("Location: index.php");
     exit;
 }
@@ -27,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <form method="POST">
     Name: <input type="text" name="name" value="<?= htmlspecialchars($user['name']) ?>" required><br><br>
     Email: <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required><br><br>
+    Email: <input type="password" name="password" value="<?= htmlspecialchars($user['password']) ?>" required><br><br>
     <button type="submit">Update</button>
 </form>
 </body>
