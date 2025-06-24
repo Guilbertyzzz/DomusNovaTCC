@@ -142,8 +142,9 @@ header .image::before{
     z-index: -100;
 }
 
-header .image img{
-    max-width: 600px;
+header .image img {
+    max-width: 800px;
+    width: 100%;
     margin: auto;
 }
 
